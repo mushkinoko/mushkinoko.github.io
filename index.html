@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="posts">
+  {% for post in paginator.posts %}
+    <article class="postindex">
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="btn btn-sm btn-primary">続きを読む &raquo;</a>
+    </article>
+  {% endfor %}
+  <ul class="pager">
+    {% if paginator.previous_page %}
+      <li><a href="{{ paginator.previous_page_path }}">&laquo; 前へ</a></li>
+    {% else %}
+      <li>&laquo; 前へ</li>
+    {% endif %}
+    <span>ページ: {{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <li><a href="{{ paginator.next_page_path }}">次へ &raquo;</a></li>
+    {% else %}
+      <li>次へ &raquo;</li>
+    {% endif %}
+  </ul>
+</div>

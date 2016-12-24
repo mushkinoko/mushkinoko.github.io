@@ -1,0 +1,42 @@
+@charset "UTF-8";
+body {
+  word-wrap: break-word;
+  padding-top: 70px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.site-info {
+  padding: 10px 20px;
+  text-align: center;
+}
+.site-avatar img {
+  width: 120px;
+  height: auto;
+  border-radius: 20px;
+}
+.content {
+  margin: 20px 0;
+  padding: 8px;
+  border: solid 2px #ccc;
+  border-radius: 8px;
+}
+.postindex {
+  padding: 8px 0;
+  border-bottom: solid 2px #ccc;
+}
+.post, .page{padding: 8px 0;}
+.date {
+  font-weight: bold;
+  margin: 4px 0;
+}
+.entry {margin: 4px 0;}
+.sidebar {margin: 20px 0;}
+.widget {margin: 10px 0;}
+footer {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-top: solid 2px #ccc;
+}
+.copyright {text-align: center;}

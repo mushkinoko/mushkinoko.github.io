@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ site.baseurl }}/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ site.baseurl }}/">Home</a></li>
+              <li><a href="{{ site.baseurl }}/about">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="site-info">
+        <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+        {% if page.title %}
+          <div class="h1 site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></div>
+        {% else %}
+          <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+        {% endif %}
+        <p class="site-description">{{ site.description }}</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 content">
+          {{ content }}
+        </div>
+        <div class="col-sm-4 sidebar">
+          {% if site.google-custom-search %}
+          <div class="widget">
+            <form id="cse-search-box" action="//google.com/cse">
+              <input type="hidden" name="cx" value="{{ site.google-custom-search }}" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <div class="input-group">
+                <input type="text" name="q" size="30" class="form-control" />
+                <span class="input-group-btn">
+                  <input type="submit" name="sa" value="検索" class="btn btn-primary" />
+                </span>
+              </div>
+            </form>
+            <img src="http://www.google.com/cse/images/google_custom_search_smwide.gif">
+          </div>
+          {% endif %}
+          {% if site.sns-button %}
+          <div class="widget">
+            <div class="panel panel-default">
+              <div class="panel-heading">SNS</div>
+              <div class="panel-body">
+                {% if site.sns-buttons.twitter %}
+                  <a href="//twitter.com/{{ site.sns-buttons.twitter }}" class="btn btn-primary btn-block">Twitter</a>
+                {% endif %}
+                {% if site.sns-buttons.facebook %}
+                  <a href="//www.facebook.com/{{ site.sns-buttons.facebook }}" class="btn btn-primary btn-block btn-block btn-block btn-block btn-block btn-block">Facebook</a>
+                {% endif %}
+                {% if site.sns-buttons.googleplus %}
+                  <a href="//plus.google.com/{{ site.sns-buttons.googleplus }}" class="btn btn-primary btn-block btn-block btn-block btn-block btn-block">Google+</a>
+                {% endif %}
+                {% if site.sns-buttons.instagram %}
+                  <a href="//instagram.com/{{ site.sns-buttons.instagram }}" class="btn btn-primary btn-block btn-block btn-block btn-block">Instagram</a>
+                {% endif %}
+                {% if site.sns-buttons.github %}
+                  <a href="//github.com/{{ site.sns-buttons.github }}" class="btn btn-primary btn-block btn-block btn-block">GitHub</a>
+                {% endif %}
+                {% if site.sns-buttons.rss %}
+                  <a href="{{ site.baseurl }}/feed.xml" class="btn btn-primary btn-block btn-block btn-block">フィード</a>
+                {% endif %}
+                {% if site.sns-buttons.line %}
+                  <a href="//line.me/ti/p/{{ site.sns-buttons.line }}" class="btn btn-primary btn-block btn-block">LINE@</a>
+                {% endif %}
+                {% if site.sns-buttons.email %}
+                  <a href="mailto:{{ site.sns-buttons.email }}" class="btn btn-primary btn-block">メール</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          <div class="widget">
+            <div class="panel panel-default">
+              <div class="panel-heading">最近の投稿</div>
+              <div class="panel-body">
+                <ul>
+                  {% for post in site.posts limit:5 %}
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p class="copyright">Copyright &copy; {{ site.name }} All Rights Reserved.</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

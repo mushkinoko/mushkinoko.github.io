@@ -1,0 +1,39 @@
+name: mushkinoko
+
+description: mushkinokoのブログみたいな。
+
+avatar: //github.com/mushkinoko.png
+
+baseurl: ""
+
+permalink: /:title/
+
+paginate: 8
+
+paginate_path: "/page:num/"
+
+sns-button: true
+
+sns-buttons:
+  twitter:
+  facebook:
+  googleplus:
+  instagram:
+  hatena:
+  github: mushkinoko
+  rss: true
+  line:
+  email:
+  
+google-custom-search:
+
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
