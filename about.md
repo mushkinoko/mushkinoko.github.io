@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Aboutページです。
+Aboutページです。特に書くことはないです。
