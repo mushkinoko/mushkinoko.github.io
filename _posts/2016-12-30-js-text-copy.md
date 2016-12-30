@@ -5,7 +5,7 @@ title: JavaScriptでテキストをコピー
 
 最近やっと知ることができたので、メモしとく。
 
-~~~
+```
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('copybutton').addEventListener('click', function() {
     var range = document.createRange();
@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.execCommand('copy');
   });
 });
-~~~
+```
 
 IDを自分のものに置き換えればいい。
 
 [Demo]({{ site.baseurl }}/html/copydemo.html)
 
-document.execCommand('copy')は、変数の中身をコピーすることはできなくて、画面に表示されているものしかコピーできないらしい。
+`document.execCommand('copy')`は、変数の中身をコピーすることはできなくて、画面に表示されているものしかコピーできないらしい。
