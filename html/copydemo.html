@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>コピーしてみる。</title>
+  </head>
+  <body>
+    <p>下の文章をコピーしてみるよ。</p>
+    <p id="copytext">祇園精舎の鐘の声、諸行無常の響きあり。沙羅双樹の花の色、盛者必衰の理をあらはす。おごれる人も久しからず、ただ春の夜の夢のごとし。たけき者も遂にはほろびぬ、ひとへに風の前の塵に同じ。</p>
+    <button id="copybutton" class="btn btn-primary btn-block">コピーしてみる。</button>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('copybutton').addEventListener('click', function() {
+        var range = document.createRange();
+        var copytext = document.getElementById('copytext');
+        range.selectNode(copytext);
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+      });
+    });
+  </script>
+</html>
