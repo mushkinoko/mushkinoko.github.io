@@ -20,3 +20,5 @@ document.addEventListener('DOMContentLoaded', function() {
 IDを自分のものに置き換えればいい。
 
 [Demo]({{ site.baseurl }}/html/copydemo.html)
+
+document.execCommand('copy')は、変数の中身をコピーすることはできなくて、画面に表示されているものしかコピーできないらしい。
