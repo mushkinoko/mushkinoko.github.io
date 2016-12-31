@@ -27,7 +27,7 @@ img {
   border-bottom: solid 2px #ccc;
 }
 .post, .page {padding: 8px 0;}
-.posttitle {margin-top: 10px;}
+.posttitle, .pagetitle {margin-top: 10px;}
 .date {
   font-weight: bold;
   margin: 4px 0;
