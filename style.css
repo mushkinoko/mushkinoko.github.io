@@ -22,12 +22,12 @@ img {
   margin: 20px 0;
   padding: 8px;
   background-color: #fff;
-  border: solid 2px #333;
+  border: solid 2px #ccc;
   border-radius: 8px;
 }
 .postindex {
   padding: 8px 0;
-  border-bottom: solid 2px #333;
+  border-bottom: solid 2px #ccc;
 }
 .post, .page {padding: 8px 0;}
 .posttitle, .pagetitle {margin-top: 10px;}
@@ -41,6 +41,6 @@ img {
 footer {
   margin-top: 10px;
   padding: 10px 20px;
-  border-top: solid 2px #333;
+  border-top: solid 2px #ccc;
 }
 .copyright {text-align: center;}
