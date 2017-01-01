@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>アルバムアートワーク取得</title>
+  </head>
+  <body>
+    <h1>アルバムアートワーク取得</h1>
+    <p>iTunesから画像を拾ってくるよ。</p>	
+    <div class="input-group">
+      <input type="text" id="keyword" class="form-control">
+      <span class="input-group-btn">
+        <button id="search" class="btn btn-default" type="button">検索</button>
+      </span>
+    </div>
+    <div id="loading"></div>
+    <div id="artworks"></div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    $(function(){
+      $("#search").click(function(){
+        search($("#keyword").val());
+      });
+    });
+    function search(keyword) {
+      $("#artworks").empty();
+      $("#loading").text("読み込み中...");
+      $.ajax({
+        dataType: "jsonp",
+        data: {
+          "term": keyword,
+          "country":"jp",
+          "entity":"album",
+          "limit":"30"
+        },
+        url: "https://itunes.apple.com/search",
+        success: function (data) {
+          $("#loading").text("");	
+          $.each(data.results, function(i, item){
+            var artworkUrl100 = item.artworkUrl100;
+            var artworkUrl600 = artworkUrl100.replace("100x100","600x600");
+            $("<a/>")
+              .attr("href", artworkUrl600)
+              .append("<img src='" + item.artworkUrl60 + "' width='100px' style='margin:5px;'/>")
+              .appendTo("#artworks");
+          });
+        }
+      });
+    }
+  </script>
+</html>
