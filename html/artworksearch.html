@@ -17,7 +17,7 @@
             <button id="search" class="btn btn-primary" type="submit">検索</button>
           </span>
         </div>
-      </div>
+      </form>
       <div id="loading"></div>
       <div id="artworks"></div>
     </div>
@@ -49,7 +49,7 @@
             var artworkUrl600 = artworkUrl100.replace("100x100","600x600");
             $("<a/>")
               .attr("href", artworkUrl600)
-              .append("<img src='" + item.artworkUrl60 + "' width='100px' style='margin:5px;'/>")
+              .append("<img src='" + item.artworkUrl60 + "' width='100px' style='margin:5px;border-radius:5px;'/>")
               .appendTo("#artworks");
           });
         }
