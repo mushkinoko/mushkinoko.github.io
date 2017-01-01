@@ -21,6 +21,7 @@ img {
 .content {
   margin: 20px 0;
   padding: 8px;
+  background-color: #fff;
   border: solid 2px #333;
   border-radius: 8px;
 }
