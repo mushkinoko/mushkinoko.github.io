@@ -10,11 +10,13 @@
     <div class="container">
       <h1>アルバムアートワーク取得</h1>
       <p>iTunesから画像を拾ってくるよ。</p>
-      <div class="input-group">
-        <input type="text" id="keyword" class="form-control">
-        <span class="input-group-btn">
-          <button id="search" class="btn btn-primary" type="submit">検索</button>
-        </span>
+      <form id="searchform" onsubmit="return false">
+        <div class="input-group">
+          <input type="text" id="keyword" class="form-control">
+          <span class="input-group-btn">
+            <button id="search" class="btn btn-primary" type="submit">検索</button>
+          </span>
+        </div>
       </div>
       <div id="loading"></div>
       <div id="artworks"></div>
