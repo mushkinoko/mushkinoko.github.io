@@ -39,9 +39,9 @@
           "term": keyword,
           "country":"jp",
           "entity":"album",
-          "limit":"30"
+          "limit":"20"
         },
-        url: "https://itunes.apple.com/search",
+        url: "//itunes.apple.com/search",
         success: function (data) {
           $("#loading").text("");	
           $.each(data.results, function(i, item){
