@@ -49,7 +49,7 @@
             var artworkUrl100 = item.artworkUrl100;
             var artworkUrl600 = artworkUrl100.replace("100x100","600x600");
             $("<a/>")
-              .attr("href", artworkUrl600)
+              .attr("href", item.artworkUrl512)
               .append("<img src='" + item.artworkUrl60 + "' width='100px' style='margin:5px;border-radius:5px;'/>")
               .appendTo("#artworks");
           });
