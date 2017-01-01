@@ -21,12 +21,12 @@ img {
 .content {
   margin: 20px 0;
   padding: 8px;
-  border: solid 2px #ccc;
+  border: solid 2px #333;
   border-radius: 8px;
 }
 .postindex {
   padding: 8px 0;
-  border-bottom: solid 2px #ccc;
+  border-bottom: solid 2px #333;
 }
 .post, .page {padding: 8px 0;}
 .posttitle, .pagetitle {margin-top: 10px;}
@@ -40,6 +40,6 @@ img {
 footer {
   margin-top: 10px;
   padding: 10px 20px;
-  border-top: solid 2px #ccc;
+  border-top: solid 2px #333;
 }
 .copyright {text-align: center;}
