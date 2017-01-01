@@ -7,16 +7,18 @@
     <title>アルバムアートワーク取得</title>
   </head>
   <body>
-    <h1>アルバムアートワーク取得</h1>
-    <p>iTunesから画像を拾ってくるよ。</p>	
-    <div class="input-group">
-      <input type="text" id="keyword" class="form-control">
-      <span class="input-group-btn">
-        <button id="search" class="btn btn-default" type="button">検索</button>
-      </span>
+    <div class="container">
+      <h1>アルバムアートワーク取得</h1>
+      <p>iTunesから画像を拾ってくるよ。</p>
+      <div class="input-group">
+        <input type="text" id="keyword" class="form-control">
+        <span class="input-group-btn">
+          <button id="search" class="btn btn-primary" type="submit">検索</button>
+        </span>
+      </div>
+      <div id="loading"></div>
+      <div id="artworks"></div>
     </div>
-    <div id="loading"></div>
-    <div id="artworks"></div>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
