@@ -9,7 +9,7 @@ title: HTML5の新しい属性「contentEditable」
   <p>使い方は、</p>
   <pre>
     <code>
-      <div contentEditable="true"></div>
+      &lt;div contentEditable="true"&gt;&lt;/div&gt;
     </code>
   </pre>
   <p>こんな感じです。すごく簡単です。これ、Webサイトを印刷するときに広告を消してから印刷するみたいな目的に使ったりできそうです。</p>
