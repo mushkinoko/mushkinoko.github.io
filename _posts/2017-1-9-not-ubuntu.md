@@ -9,4 +9,4 @@ PlankとかGTK+のテーマとか入れてみました。
 
 適当にやった割にはよく出来たと自分は思っています。
 
-![Ubuntuじゃない]({{ site.baseurl }}/img/2017-1-9-not-ubuntu.jpg)
+![Ubuntuじゃない]({{ site.baseurl }}/img/2017-1-9-not-ubuntu.png)
