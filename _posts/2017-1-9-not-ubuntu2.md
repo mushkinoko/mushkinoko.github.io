@@ -3,7 +3,7 @@ layout: post
 title: UbuntuになれなかったXubuntu
 ---
 
-ThinkPad X32のOSをLubuntu 16.04 LTSからXubuntuに変えたついでに、XubuntuをUbuntuっぽくしてみました(前回もそんな感じだった気が)。
+ThinkPad X32のOSをLubuntu 16.04 LTSからXubuntu 16.04 LTSに変えたついでに、XubuntuをUbuntuっぽくしてみました(前回もそんな感じだった気が)。
 
 前回とは違い、DockyとかPlankみたいなドック系のアプリケーションを追加せずに、Xfceのパネルを使ってドックを作ってみました。
 
