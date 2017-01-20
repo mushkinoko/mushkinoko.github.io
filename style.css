@@ -18,11 +18,6 @@ img {
   padding: 10px 20px;
   text-align: center;
 }
-.site-info h1 a, .site-info h1 a:link, .site-info h1 a:visited, .site-info h1 a:hover, .site-info h1 a:active, 
-.site-info .h1 a, .site-info .h1 a:link, .site-info .h1 a:visited, .site-info .h1 a:hover, .site-info .h1 a:active {
-  color: #333;
-  text-decoration: none;
-}
 .content {
   margin: 20px 0;
   padding: 8px;
