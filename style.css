@@ -13,6 +13,11 @@ img {
   padding: 10px 20px;
   text-align: center;
 }
+.site-info h1 a, .site-info h1 a:link, .site-info h1 a:visited, .site-info h1 a:hover, .site-info h1 a:active, 
+.site-info .h1 a, .site-info .h1 a:link, .site-info .h1 a:visited, .site-info .h1 a:hover, .site-info .h1 a:active {
+  color: #333;
+  text-decoration: none;
+}
 .site-avatar img {
   width: 120px;
   height: auto;
