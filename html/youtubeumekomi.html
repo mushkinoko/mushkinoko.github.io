@@ -6,15 +6,8 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <title>友達のための、YouTube動画埋め込みツール</title>
     <style>
-      #videopre {
-        margin-top: 8px;
-        display: none;
-      }
-      #copybutton, #closebutton {
-        margin-top: 8px;
-        margin-right: 8px;
-        display: none;
-      }
+      .input-group {margin-bottom: 8px;}
+      #videopre, #copybutton, #closebutton {display: none;}
     </style>
   </head>
   <body>
@@ -32,6 +25,22 @@
       <pre id="videopre"><code id="videocode"></code></pre>
       <button id="copybutton" class="btn btn-primary">コピーする</button>
       <button id="closebutton" class="btn btn-default">閉じる</button>
+      <hr>
+      <h2>YouTubeの埋め込み動画をレスポンシブにするには</h2>
+      <p>YouTubeの埋め込み動画をレスポンシブにするには、下のスタイルシートをhead内等に追記します。<p>
+      <pre><code>.youtube {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.youtube iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}</code></pre>
     </div>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
