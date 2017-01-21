@@ -34,7 +34,7 @@
       var videoid = /[/?=]([-\w]{11})/.exec(videourl);
       if (videoid) {
         videoid = videoid[1];
-        $("#videocode").text('<div class="youtube"><iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
+        $("#videocode").text('<div class="youtube"><iframe width="560" height="315" src="//www.youtube.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
       }
     }
     document.addEventListener('DOMContentLoaded', function() {
