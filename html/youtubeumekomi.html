@@ -10,18 +10,32 @@
     <div class="container">
       <h1>友達のための、YouTube動画埋め込みツール</h1>
       <p>HTMLを書かない友達のために作りました。ブログとかに埋め込むときに便利です。レスポンシブ対応できるようにdivタグで囲っておきました。</p>
-      <div class="input-group">
-        <input type="text" placeholder="動画のURL" class="form-control">
-        <span class="input-group-btn">
-          <input type="submit" value="生成" class="btn btn-primary">
-        </span>
-      </div>
+      <form id="videourlform" onsubmit="return false">
+        <div class="input-group">
+          <input type="text" id="videourl" class="form-control" placeholder="動画のURL">
+          <span class="input-group-btn">
+            <button id="generate" class="btn btn-primary" type="submit">生成</button>
+          </span>
+        </div>
+      </form>
       <button id="copybutton" class="btn btn-primary btn-block">コピーしてみる。</button>
     </div>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
   <script>
+    $(function(){
+      $("#generate").click(function(){
+        umekomi($("#videourl").val());
+      });
+    });
+    function umekomi(videourl) {
+      var videoid = /[/?=]([-\w]{11})/.exec(videourl);
+      if (videoid) {
+        videoid = videoid[1];
+        alert(videoid);
+      }
+    }
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('copybutton').addEventListener('click', function() {
         var range = document.createRange();
