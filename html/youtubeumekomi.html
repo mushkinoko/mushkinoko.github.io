@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>友達のための、YouTube動画埋め込みツール</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>友達のための、YouTube動画埋め込みツール</h1>
+      <p>HTMLを書かない友達のために作りました。ブログとかに埋め込むときに便利です。レスポンシブ対応できるようにdivタグで囲っておきました。</p>
+      <div class="input-group">
+        <input type="text" placeholder="動画のURL" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" value="生成" class="btn btn-primary">
+        </span>
+      </div>
+      <button id="copybutton" class="btn btn-primary btn-block">コピーしてみる。</button>
+    </div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('copybutton').addEventListener('click', function() {
+        var range = document.createRange();
+        var copytext = document.getElementById('copytext');
+        range.selectNode(copytext);
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+      });
+    });
+  </script>
+</html>
