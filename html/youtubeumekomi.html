@@ -40,9 +40,6 @@
     $(function(){
       $("#generate").click(function(){
         umekomi($("#videourl").val());
-        $("#videopre").css("display", "block");
-        $("#copybutton").css("display", "inline");
-        $("#closebutton").css("display", "inline");
       });
       $("#closebutton").click(function(){
         $("#videourl").val("");
@@ -55,6 +52,9 @@
       var videoid = /[/?=]([-\w]{11})/.exec(videourl);
       if (videoid) {
         videoid = videoid[1];
+        $("#videopre").css("display", "block");
+        $("#copybutton").css("display", "inline");
+        $("#closebutton").css("display", "inline");
         $("#videocode").text('<div class="youtube"><iframe width="560" height="315" src="//www.youtube.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
       }
     }
