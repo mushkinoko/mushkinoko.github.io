@@ -34,11 +34,9 @@
       var videoid = /[/?=]([-\w]{11})/.exec(videourl);
       if (videoid) {
         videoid = videoid[1];
-        $("videocode").append('<div class="youtube"><iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
+        $("#videocode").html('<div class="youtube"><iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
       }
     }
-    var text = jQuery( 'input[name="xxxx"]' ).val();
-    text = jQuery( '<span/>' ).text( text ).html();
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('copybutton').addEventListener('click', function() {
         var range = document.createRange();
