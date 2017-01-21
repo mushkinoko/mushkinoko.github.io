@@ -19,6 +19,7 @@
         </div>
       </form>
       <button id="copybutton" class="btn btn-primary btn-block">コピーしてみる。</button>
+      <pre><code id="videocode"></code></pre>
     </div>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -33,9 +34,11 @@
       var videoid = /[/?=]([-\w]{11})/.exec(videourl);
       if (videoid) {
         videoid = videoid[1];
-        alert(videoid);
+        $("videocode").text('<div class="youtube"><iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/' + videoid + '" frameborder="0" allowfullscreen></iframe></div>');
       }
     }
+    var text = jQuery( 'input[name="xxxx"]' ).val();
+    text = jQuery( '<span/>' ).text( text ).html();
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('copybutton').addEventListener('click', function() {
         var range = document.createRange();
