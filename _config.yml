@@ -15,7 +15,7 @@ paginate_path: "/page:num/"
 sns-button: true
 
 sns-buttons:
-  twitter:
+  twitter: takusan_4046
   facebook:
   googleplus:
   instagram:
