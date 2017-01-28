@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <title>友達のための、YouTube動画埋め込みツール</title>
-    <style>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style type="text/css">
       #videopre {margin-top: 8px;}
       #videopre, #copybutton, #closebutton {display: none;}
     </style>
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
     <div class="container">
@@ -46,7 +51,7 @@
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
-  <script>
+  <script type="text/javascript">
     $(function(){
       $("#generate").click(function(){
         umekomi($("#videourl").val());
