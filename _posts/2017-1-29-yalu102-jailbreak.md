@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2016年の年越し。
+title: yalu102でiPhone 6を脱獄
 ---
 
 Lucaさんの作った「yalu102」を他の人がコンパイルしてiPhone 6に対応させたipaファイルを使って脱獄してみました。
@@ -33,6 +33,7 @@ iPhone 6に対応させたipaは、
 しばらく経って、ホーム画面にCydiaが出てきたら成功。
 
 ![Cydia]({{ site.baseurl }}/img/2017-1-29-cydia-ios10.jpg)
+
 一応、隠しといた。
 
 ## 注意事項
