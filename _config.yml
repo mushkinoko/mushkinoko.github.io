@@ -8,7 +8,7 @@ baseurl: ""
 
 permalink: /:title/
 
-paginate: 8
+paginate: 5
 
 paginate_path: "/page:num/"
 
@@ -20,7 +20,7 @@ sns-buttons:
   googleplus:
   instagram:
   hatena:
-  github: mushkinoko
+  github: takusan4046
   rss: true
   line:
   email:
