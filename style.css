@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 body {
   word-wrap: break-word;
   padding-top: 70px;
@@ -9,11 +10,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-.site-avatar img {
-  width: 120px;
-  height: auto;
-  border-radius: 20px;
-}
+.site-avatar img {border-radius: 20px;}
 .site-info {
   padding: 10px 20px;
   text-align: center;
