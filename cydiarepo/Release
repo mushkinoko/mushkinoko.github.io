@@ -1,8 +1,0 @@
-Origin: takusan's monoki
-Label: takusan
-Suite: stable
-Version: 1.0
-Codename: tangelo
-Architectures: iphoneos-arm
-Components: main
-Description: takusan's Cydia repository.
