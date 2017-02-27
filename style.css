@@ -33,6 +33,13 @@ img {
   margin: 4px 0;
 }
 .entry {margin: 4px 0;}
+.entry img {
+  display: block;
+  max-width: 65%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
 .sidebar {margin: 20px 0;}
 .widget {margin: 10px 0;}
 footer {
