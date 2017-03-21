@@ -27,17 +27,14 @@
             var options = {
               timeZone : "Asia/Tokyo",
               year : "numeric",
-              month : "2-digit",
-              day : "2-digit",
+              month : "short",
+              day : "numeric",
               weekday : "long"
             };
             date = date.toLocaleDateString("ja-JP", options);
-            weekday = date.substr(10, 3);
-            date = date.substr(0, 10).split("/");
             $(".matchresults-end").before(
-              '<div style="margin-top:8px">' + date[0] + '年' + date[1] + '月' + date[2] + '日 ' + weekday +
-              '</div><table border="1" style="width:500px;table-layout:fixed"><tbody><tr><td style="text-align:center">' + finished[i].homeTeamName +
-              '</td><td style="text-align:center">' + finished[i].awayTeamName + '</td></tr><tr><td colspan="2" style="text-align:center">' +
+              '<div style="margin-top:8px">' + date + '</div><table border="1" style="width:500px;table-layout:fixed"><tbody><tr><td style="text-align:center">' +
+              finished[i].homeTeamName + '</td><td style="text-align:center">' + finished[i].awayTeamName + '</td></tr><tr><td colspan="2" style="text-align:center">' +
               finished[i].result.goalsHomeTeam + ' - ' + finished[i].result.goalsAwayTeam + '</td></tr></tbody></table>'
             );
           }
