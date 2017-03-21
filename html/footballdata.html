@@ -34,7 +34,7 @@
           weekday = date.substr(10, 3);
           date = date.substr(0, 10).split("/");
           $(".matchresults-end").before(
-            '<div>' + date[0] + '年' + date[1] + '月' + date[2] + '日 ' + weekday + '</div><table><tbody><tr><td>' +
+            '<div>' + date[0] + '年' + date[1] + '月' + date[2] + '日 ' + weekday + '</div><table border="1"><tbody><tr><td>' +
             finished[i].homeTeamName + '</td><td>' + finished[i].awayTeamName + '</td></tr><tr><td colspan="2">' +
             finished[i].result.goalsHomeTeam + ' - ' + finished[i].result.goalsAwayTeam + '</td></tr></tbody></table>'
           );
