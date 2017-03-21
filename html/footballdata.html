@@ -11,36 +11,38 @@
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript">
-    $.ajaxSetup({
-      headers : {"X-Auth-Token" : "b731fab87a7b4ecd99d927a709fa7946"}
-    });
+    $(function() {
+      $.ajaxSetup({
+        headers : {"X-Auth-Token" : "b731fab87a7b4ecd99d927a709fa7946"}
+      });
 
-    $.getJSON(
-      "//api.football-data.org/v1/teams/77/fixtures", function(json) {
-        var finished = $.grep(json.fixtures, function(item, index){
-          return item.status == "FINISHED";
-        });
-        finished = finished.reverse();
-        for(var i=0;i<10;i++){
-          var date = new Date(finished[i].date);
-          var options = {
-            timeZone : "Asia/Tokyo",
-            year : "numeric",
-            month : "2-digit",
-            day : "2-digit",
-            weekday : "long"
-          };
-          date = date.toLocaleDateString("ja-JP", options);
-          weekday = date.substr(10, 3);
-          date = date.substr(0, 10).split("/");
-          $(".matchresults-end").before(
-            '<div style="margin-top:8px">' + date[0] + '年' + date[1] + '月' + date[2] + '日 ' + weekday +
-            '</div><table border="1" style="width:500px;table-layout:fixed"><tbody><tr><td style="text-align:center">' + finished[i].homeTeamName +
-            '</td><td style="text-align:center">' + finished[i].awayTeamName + '</td></tr><tr><td colspan="2" style="text-align:center">' +
-            finished[i].result.goalsHomeTeam + ' - ' + finished[i].result.goalsAwayTeam + '</td></tr></tbody></table>'
-          );
+      $.getJSON(
+        "//api.football-data.org/v1/teams/77/fixtures", function(json) {
+          var finished = $.grep(json.fixtures, function(item, index){
+            return item.status == "FINISHED";
+          });
+          finished = finished.reverse();
+          for(var i=0;i<10;i++){
+            var date = new Date(finished[i].date);
+            var options = {
+              timeZone : "Asia/Tokyo",
+              year : "numeric",
+              month : "2-digit",
+              day : "2-digit",
+              weekday : "long"
+            };
+            date = date.toLocaleDateString("ja-JP", options);
+            weekday = date.substr(10, 3);
+            date = date.substr(0, 10).split("/");
+            $(".matchresults-end").before(
+              '<div style="margin-top:8px">' + date[0] + '年' + date[1] + '月' + date[2] + '日 ' + weekday +
+              '</div><table border="1" style="width:500px;table-layout:fixed"><tbody><tr><td style="text-align:center">' + finished[i].homeTeamName +
+              '</td><td style="text-align:center">' + finished[i].awayTeamName + '</td></tr><tr><td colspan="2" style="text-align:center">' +
+              finished[i].result.goalsHomeTeam + ' - ' + finished[i].result.goalsAwayTeam + '</td></tr></tbody></table>'
+            );
+          }
         }
-      }
-    );
+      );
+    });
   </script>
 </html>
