@@ -16,7 +16,7 @@
     });
 
     $.getJSON(
-      "http://api.football-data.org/v1/teams/77/fixtures", function(json) {
+      "//api.football-data.org/v1/teams/77/fixtures", function(json) {
         var finished = $.grep(json.fixtures, function(item, index){
           return item.status == "FINISHED";
         });
