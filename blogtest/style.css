@@ -161,6 +161,7 @@ header a, header a:link, header a:visited, header a:hover, header a:active {
   border-color: #bceedd;
   border-radius: 2px;
   background-color: #fff;
+  box-shadow: 0 0 0 1px #ddd;
 }
 
 .postindex {
