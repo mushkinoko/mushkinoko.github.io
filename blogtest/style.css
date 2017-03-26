@@ -2,6 +2,7 @@ body {
   background-color: #eee;
   font-size: 16px;
   color: #333;
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -161,6 +162,9 @@ header a, header a:link, header a:visited, header a:hover, header a:active {
 }
 
 .postindex {
+  height: -webkit-calc(100% - 18px);
+  height: -moz-calc(100% - 18px);
+  height: calc(100% - 18px);
   position: relative;
   margin: 4px;
   padding: 4px;
