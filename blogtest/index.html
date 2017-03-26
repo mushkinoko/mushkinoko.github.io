@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body id="content">
-
+<body>
 <div id="layout">
   <a id="menuLink" class="menu-link">
     <span></span>
@@ -171,14 +170,12 @@
   </div>
 </div>
 <script>
-  var body = document.getElementById('content'),
-  layout = document.getElementById('layout'),
+  var layout = document.getElementById('layout'),
   menu = document.getElementById('menu'),
   menuLink = document.getElementById('menuLink'),
   main = document.getElementById('main');
   
   function togglemenu() {
-    content.classList.toggle('noscroll');
     layout.classList.toggle('active');
     menu.classList.toggle('active');
     menuLink.classList.toggle('active');
