@@ -21,35 +21,17 @@
   <div id="pixijsview"></div>
 </body>
 <script>
-  var width = 240;
-  var height = 320;
+  var app = new PIXI.Application(120, 160, {backgroundColor : 0x000000});
+  document.getElementById("pixijsview").appendChild(app.view);
 
-  // ステージを作る
-  var stage = new PIXI.Stage(0x000000);
+  var text = new PIXI.Text("takusan", {font:'bold 10pt Arial', fill:'white'});
+  text.x = app.renderer.width / 2;
+  text.y = app.renderer.height / 2;
 
-  // レンダラーを作る
-  var renderer = PIXI.autoDetectRenderer(width, height);
+  app.stage.addChild(text);
 
-  document.getElementById("pixijsview").appendChild(renderer.view);
-
-  // テキストオブジェクトを作る
-  var word = "takusan";
-  var style = {font:'bold 20pt Arial', fill:'white'};
-  var textobj = new PIXI.Text(word, style);
-  textobj.position.x = width / 2;
-  textobj.position.y = height / 2;
-
-  // テキストオブジェクトをステージに乗せる
-  stage.addChild(textobj);
-
-  // アニメーション関数を定義する
-  function animate(){
-    requestAnimationFrame(animate); // 次の描画タイミングでanimateを呼び出す
-    textobj.rotation += 0.1; // テキストを回転する
-    renderer.render(stage); // 描画する
-  }
-
-  // 次のアニメーションフレームでanimate()を呼び出してもらう
-  requestAnimationFrame(animate);
+  app.ticker.add(function(delta) {
+    text.rotation += 0.01 * delta;
+  });
 </script>
 </html>
