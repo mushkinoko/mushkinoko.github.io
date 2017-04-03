@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">  <title>OnePantsMan</title>
   <script src="http://pixijs.download/release/pixi.min.js"></script>
   <style>
-    html, body {margin: 0; padding: 0;}
+    html, body {margin: 0; padding: 0; height: 100%;}
     #pixijsview {
-      
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
     #pixijsview canvas {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -32,8 +34,6 @@ var renderer = PIXI.autoDetectRenderer(width, height);
 
 pixijsview.appendChild(renderer.view);
 
-pixijsresize();
-window.onresize = pixijsresize();
 // テキストオブジェクトを作る
 var word = "Hello World!";
 var style = {font:'bold 60pt Arial', fill:'white'};
@@ -54,8 +54,6 @@ function animate(){
 // 次のアニメーションフレームでanimate()を呼び出してもらう
 requestAnimationFrame(animate);
 
-function pixijsresize() {
-pixijsview.style.margin = (window.innerHeight - pixijsview.clientHeight) / 2 + "px 0";
-}
+
 </script>
 </html>
