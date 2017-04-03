@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  <title>OnePantsMan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">  <title>OnePantsMan</title>
   <script src="http://pixijs.download/release/pixi.min.js"></script>
   <style>
     html, body {margin: 0; padding: 0; height: 100%;}
@@ -13,7 +14,6 @@
     }
     #pixijsview canvas {
       width: 100%;
-      height: auto;
     }
   </style>
 </head>
@@ -21,39 +21,35 @@
   <div id="pixijsview"></div>
 </body>
 <script>
-  var pixijsview = document.getElementById("pixijsview");
-  
   var width = 240;
-var height = 320;
+  var height = 320;
 
-// ステージを作る
-var stage = new PIXI.Stage(0x000000);
+  // ステージを作る
+  var stage = new PIXI.Stage(0x000000);
 
-// レンダラーを作る
-var renderer = PIXI.autoDetectRenderer(width, height);
+  // レンダラーを作る
+  var renderer = PIXI.autoDetectRenderer(width, height);
 
-pixijsview.appendChild(renderer.view);
+  document.getElementById("pixijsview").appendChild(renderer.view);
 
-// テキストオブジェクトを作る
-var word = "Hello World!";
-var style = {font:'bold 60pt Arial', fill:'white'};
-var textobj = new PIXI.Text(word, style);
-textobj.position.x = 60;
-textobj.position.y = height / 2;
+  // テキストオブジェクトを作る
+  var word = "takusan";
+  var style = {font:'bold 20pt Arial', fill:'white'};
+  var textobj = new PIXI.Text(word, style);
+  textobj.position.x = width / 2;
+  textobj.position.y = height / 2;
 
-// テキストオブジェクトをステージに乗せる
-stage.addChild(textobj);
+  // テキストオブジェクトをステージに乗せる
+  stage.addChild(textobj);
 
-// アニメーション関数を定義する
-function animate(){
+  // アニメーション関数を定義する
+  function animate(){
     requestAnimationFrame(animate); // 次の描画タイミングでanimateを呼び出す
-    textobj.rotation += 0.01; // テキストを回転する
-    renderer.render(stage);   // 描画する
-}
+    textobj.rotation += 0.1; // テキストを回転する
+    renderer.render(stage); // 描画する
+  }
 
-// 次のアニメーションフレームでanimate()を呼び出してもらう
-requestAnimationFrame(animate);
-
-
+  // 次のアニメーションフレームでanimate()を呼び出してもらう
+  requestAnimationFrame(animate);
 </script>
 </html>
