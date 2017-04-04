@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>パンイチスイマー</title>
+  <script src="http://pixijs.download/release/pixi.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #pixijsview {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    #pixijsview canvas {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="pixijsview"></div>
+</body>
+<script>
+  var app = new PIXI.Application(120, 160, {backgroundColor : 0x2e287e});
+  document.getElementById('pixijsview').appendChild(app.view);
+  
+  var started = 0;
+  
+  var titlecontainer = new PIXI.Container();
+  
+  var title = PIXI.Sprite.fromImage('title.png');
+  title.anchor.set(0.5);
+  title.x = app.renderer.width / 2;
+  title.y = 41;
+  titlecontainer.addChild(title);
+  
+  var playbutton = PIXI.Sprite.fromImage('playbutton.png');
+  playbutton.anchor.set(0.5);
+  playbutton.x = app.renderer.width / 2;
+  playbutton.y = 105;
+  titlecontainer.addChild(playbutton);
+  
+  var howtobutton = PIXI.Sprite.fromImage('howtobutton.png');
+  howtobutton.anchor.set(0.5);
+  howtobutton.x = app.renderer.width / 2;
+  howtobutton.y = 135;
+  titlecontainer.addChild(howtobutton);
+  
+  app.stage.addChild(titlecontainer);
+  
+  playbutton.interactive = true;
+  
+  playbutton.on('pointerdown', function() {
+    started = 1;
+  });
+  
+  var player = PIXI.Sprite.fromImage('player.png');
+  player.anchor.set(0.5);
+  player.x = app.renderer.width / 2;
+  player.y = app.renderer.height / 2;
+  app.stage.addChild(player);
+
+  app.ticker.add(function(delta) {
+    if(started == 1) {
+      if(titlecontainer.x > -160) {
+        titlecontainer.x -= 2 * delta;
+      }
+    }
+  });
+</script>
+</html>
