@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>パンイチダイバー</title>
+  <title>パンイチ</title>
   <script src="http://pixijs.download/release/pixi.min.js"></script>
   <style>
     html, body {
@@ -45,7 +45,7 @@
   app.stage.addChild(bkrocktop1);
   
   var bkrocktop2 = PIXI.Sprite.fromImage('bkrock.png');
-  bkrocktop2.x = 160;
+  bkrocktop2.x = 80;
   bkrocktop2.y = 0;
   app.stage.addChild(bkrocktop2);
   
@@ -55,7 +55,7 @@
   app.stage.addChild(bkrockbottom1);
   
   var bkrockbottom2 = PIXI.Sprite.fromImage('bkrock.png');
-  bkrockbottom2.x = 160;
+  bkrockbottom2.x = 80;
   bkrockbottom2.y = 144;
   app.stage.addChild(bkrockbottom2);
   
@@ -90,24 +90,34 @@
   });
 
   app.ticker.add(function(delta) {
-    bkrocktop1.x-=0.5 * delta;
-    bkrocktop2.x-=0.5 * delta;
-    bkrockbottom1.x-=0.5 * delta;
-    bkrockbottom2.x-=0.5 * delta;
-    
-    if(bkrocktop1.x <= -160) {
-      bkrocktop1.x = 144;
-      bkrockbottom1.x = 144;
-    }
-    
-    if(bkrocktop2.x <= -160) {
-      bkrocktop2.x = 144;
-      bkrockbottom2.x = 144;
-    }
-    
     if(started == 1) {
       if(titlecontainer.x > -120) {
         titlecontainer.x -= 2 * delta;
+      }
+      
+      bkrocktop1.x -= 0.5 * delta;
+      bkrocktop2.x -= 0.5 * delta;
+      bkrockbottom1.x -= 0.5 * delta;
+      bkrockbottom2.x -= 0.5 * delta;
+    
+      if(bkrocktop1.x <= -80) {
+        bkrocktop1.x = 80;
+        bkrockbottom1.x = 80;
+      }
+    
+      if(bkrocktop2.x <= -80) {
+        bkrocktop2.x = 80;
+        bkrockbottom2.x = 80;
+      }
+      
+      player.y += 0.5 * delta;
+      
+      if(player.y < 22) {
+        started = 0;
+      }
+      
+      if(player.y > 138) {
+        started = 0;
       }
     }
   });
