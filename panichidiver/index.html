@@ -131,6 +131,14 @@
       
       if(istouch == true) {
         player.y -= 1 * delta;
+        if(player.scale.y > 0.4) {
+          player.scale.y -= 0.1;
+        }
+      }
+      if(istouch == false) {
+        if(player.scale.y < 1) {
+          player.scale.y += 0.2;
+        }
       }
       
       if(player.y < 22) {
