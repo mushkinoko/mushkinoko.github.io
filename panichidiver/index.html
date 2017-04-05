@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>パンイチダイバー</title>
+  <script src="http://pixijs.download/release/pixi.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+    }
+    #pixijsview {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    #pixijsview canvas {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="pixijsview"></div>
+</body>
+<script>
+  var app = new PIXI.Application(120, 160, {backgroundColor : 0x2e287e});
+  document.getElementById('pixijsview').appendChild(app.view);
+  
+  var started = 0;
+  
+  var player = PIXI.Sprite.fromImage('player.png');
+  player.anchor.set(0.5);
+  player.x = app.renderer.width / 2;
+  player.y = app.renderer.height / 2;
+  app.stage.addChild(player);
+  
+  var bkrocktop1 = PIXI.Sprite.fromImage('bkrock.png');
+  bkrocktop1.x = 0;
+  bkrocktop1.y = 0;
+  app.stage.addChild(bkrocktop1);
+  
+  var bkrocktop2 = PIXI.Sprite.fromImage('bkrock.png');
+  bkrocktop2.x = 160;
+  bkrocktop2.y = 0;
+  app.stage.addChild(bkrocktop2);
+  
+  var bkrockbottom1 = PIXI.Sprite.fromImage('bkrock.png');
+  bkrockbottom1.x = 0;
+  bkrockbottom1.y = 144;
+  app.stage.addChild(bkrockbottom1);
+  
+  var bkrockbottom2 = PIXI.Sprite.fromImage('bkrock.png');
+  bkrockbottom2.x = 160;
+  bkrockbottom2.y = 144;
+  app.stage.addChild(bkrockbottom2);
+  
+  
+  
+  var titlecontainer = new PIXI.Container();
+  
+  var title = PIXI.Sprite.fromImage('title.png');
+  title.anchor.set(0.5);
+  title.x = app.renderer.width / 2;
+  title.y = 42;
+  titlecontainer.addChild(title);
+  
+  var playbutton = PIXI.Sprite.fromImage('playbutton.png');
+  playbutton.anchor.set(0.5);
+  playbutton.x = app.renderer.width / 2;
+  playbutton.y = 105;
+  titlecontainer.addChild(playbutton);
+  
+  var howtobutton = PIXI.Sprite.fromImage('howtobutton.png');
+  howtobutton.anchor.set(0.5);
+  howtobutton.x = app.renderer.width / 2;
+  howtobutton.y = 130;
+  titlecontainer.addChild(howtobutton);
+  
+  app.stage.addChild(titlecontainer);
+  
+  playbutton.interactive = true;
+  
+  playbutton.on('pointerdown', function() {
+    started = 1;
+  });
+
+  app.ticker.add(function(delta) {
+    bkrocktop1.x-=0.5;
+    bkrocktop2.x-=0.5;
+    bkrockbottom1.x-=0.5;
+    bkrockbottom2.x-=0.5;
+    
+    if(bkrocktop1.x == -160) {
+      bkrocktop1.x = 160;
+      bkrockbottom1.x = 160;
+    }
+    
+    if(bkrocktop2.x == -160) {
+      bkrocktop2.x = 160;
+      bkrockbottom2.x = 160;
+    }
+    
+    if(started == 1) {
+      if(titlecontainer.x > -160) {
+        titlecontainer.x -= 2 * delta;
+      }
+    }
+  });
+</script>
+</html>
