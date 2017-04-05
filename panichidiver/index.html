@@ -131,8 +131,8 @@
       
       if(istouch == true) {
         player.y -= 1 * delta;
-        if(player.scale.y > 0.6) {
-          player.scale.y -= 0.1;
+        if(player.scale.y > 0.8) {
+          player.scale.y -= 0.05;
         }
       }
       if(istouch == false) {
@@ -141,13 +141,13 @@
         }
       }
       
-      if(player.y < 21) {
+      if(player.y < 22) {
         touchobj.interactive = false;
         isgame = false;
         isgameover = true;
       }
       
-      if(player.y > 139) {
+      if(player.y > 138) {
         touchobj.interactive = false;
         isgame = false;
         isgameover = true;
