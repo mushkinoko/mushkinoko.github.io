@@ -90,17 +90,17 @@
   });
 
   app.ticker.add(function(delta) {
-    bkrocktop1.x-=0.5;
-    bkrocktop2.x-=0.5;
-    bkrockbottom1.x-=0.5;
-    bkrockbottom2.x-=0.5;
+    bkrocktop1.x-=0.5 * delta;
+    bkrocktop2.x-=0.5 * delta;
+    bkrockbottom1.x-=0.5 * delta;
+    bkrockbottom2.x-=0.5 * delta;
     
-    if(bkrocktop1.x == -160) {
+    if(bkrocktop1.x <= -160) {
       bkrocktop1.x = 160;
       bkrockbottom1.x = 160;
     }
     
-    if(bkrocktop2.x == -160) {
+    if(bkrocktop2.x <= -160) {
       bkrocktop2.x = 160;
       bkrockbottom2.x = 160;
     }
