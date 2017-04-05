@@ -31,7 +31,10 @@
   var app = new PIXI.Application(120, 160, {backgroundColor : 0x2e287e});
   document.getElementById('pixijsview').appendChild(app.view);
   
-  var started = 0;
+  var istitle = true;
+  var isgame = false;
+  var isgameover = false; 
+  var istouch = false;
   
   var player = PIXI.Sprite.fromImage('player.png');
   player.anchor.set(0.5);
@@ -83,14 +86,28 @@
   
   app.stage.addChild(titlecontainer);
   
+  var touchobj = new PIXI.Sprite();
+  touchobj.width = 120;
+  touchobj.height = 160;
+  app.stage.addChild(touchobj);
+  
   playbutton.interactive = true;
   
   playbutton.on('pointerdown', function() {
-    started = 1;
+    isgame = true;
+    touchobj.interactive = true;
   });
-
+    
+  touchobj.on('pointerdown', function() {
+    istouch = true;
+  });
+  touchobj.on('pointerup', function() {
+    istouch = false;
+  });
+  
+    
   app.ticker.add(function(delta) {
-    if(started == 1) {
+    if(isgame == true) {
       if(titlecontainer.x > -120) {
         titlecontainer.x -= 2 * delta;
       }
@@ -112,12 +129,20 @@
       
       player.y += 0.5 * delta;
       
+      if(istouch == true) {
+        player.y -= 1 * delta;
+      }
+      
       if(player.y < 22) {
-        started = 0;
+        touchobj.interactive = false;
+        isgame = false;
+        isgameover = true;
       }
       
       if(player.y > 138) {
-        started = 0;
+        touchobj.interactive = false;
+        isgame = false;
+        isgameover = true;
       }
     }
   });
