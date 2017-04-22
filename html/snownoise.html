@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>砂嵐</title>
 <body>
-  <canvas id="canvas" width="400" height="400" style="filter:blur(1px)"></canvas>
+  <canvas id="canvas" width="400" height="400" style="width:100%;height:auto;filter:blur(1px)"></canvas>
   <script>
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
@@ -18,7 +18,7 @@
       ctx.strokeRect(x, y, 10, 1);
     }
   }
-  setInterval(render, 120);
+  setInterval(render, 20);
   </script>
 </body>
 </html>
