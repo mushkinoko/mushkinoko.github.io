@@ -8,6 +8,12 @@
     </div>
   </div>
   <script>
+  var ttime = new Date("2017/04/29 07:30");
+  var ctime = new Date();
+    
+  var countdown = new Date(ttime-ctime);
+  console.log(countdown);
+  
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
