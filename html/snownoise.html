@@ -23,7 +23,7 @@
   var h = canvas.height;
   function render() {
     var ctime = new Date();
-    var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) /　1000);
+    var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) /　100) / 10;
     ctx.beginPath();
     ctx.fillStyle = '#eee';
     ctx.fillRect(0, 0, 640, 480);
@@ -42,13 +42,13 @@
     if(countdown > 0) {
       ctx.beginPath();
       ctx.fillStyle = '#eee';
-      ctx.font = 'bold 120px "ipam"';
+      ctx.font = 'bold 100px "ipam"';
       ctx.textAlign = 'center';
       ctx.fillText(countdown + '秒', 320, 320);
     } else {
       ctx.beginPath();
       ctx.fillStyle = '#eee';
-      ctx.font = 'bold 120px "ipam"';
+      ctx.font = 'bold 100px "ipam"';
       ctx.textAlign = 'center';
       ctx.fillText('0秒', 320, 320);
     }
