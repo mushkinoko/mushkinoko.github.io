@@ -12,7 +12,7 @@
   var ctime = new Date();
     
   var countdown = ttime.getTime() - ctime.getTime();
-  console.log(countdown / 3600000);
+  console.log(Math.floor(countdown / 36000000) / 10);
   
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
