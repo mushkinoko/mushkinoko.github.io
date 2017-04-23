@@ -12,8 +12,8 @@
   function render() {
     ctx.fillRect(0, 0, 400, 400);
     for(var i=0;i<8000;i++){
-      var x = Math.floor(Math.random() * 400);
-      var y = Math.floor(Math.random() * 400);
+      var x = Math.floor(Math.random() * 410) - 10;
+      var y = Math.floor(Math.random() * 401) - 1;
       ctx.beginPath();
       ctx.strokeRect(x, y, 10, 1);
     }
