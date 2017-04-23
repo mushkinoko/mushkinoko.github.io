@@ -11,7 +11,7 @@
   var ttime = new Date("2017/04/29 07:30");
   var ctime = new Date();
     
-  var countdown = Math.cell((ttime.getTime() - ctime.getTime()) / 360000) / 10;
+  var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) / 360000) / 10;
   console.log(countdown);
   
   var canvas = document.getElementById('canvas');
