@@ -9,16 +9,13 @@
   </div>
   <script>
   var ttime = new Date("2017/04/29 07:30");
-  var ctime = new Date();
-    
-  var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) / 360000) / 10;
-  console.log(countdown);
-  
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
   var h = canvas.height;
   function render() {
+    var ctime = new Date();
+    var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) / 360000) / 10;
     ctx.beginPath();
     ctx.fillStyle = "#eee";
     ctx.fillRect(0, 0, 640, 480);
@@ -33,7 +30,12 @@
     ctx.fillStyle = "#eee";
     ctx.font = "bold 100px 'sans-serif'";
     ctx.textAlign = "center";
-    ctx.fillText("テキスト", 320, 265);
+    ctx.fillText("大会まであと", 320, 200);
+    ctx.beginPath();
+    ctx.fillStyle = "#eee";
+    ctx.font = "bold 100px 'sans-serif'";
+    ctx.textAlign = "center";
+    ctx.fillText(countdown + "時間", 320, 280);
   }
   setInterval(render, 80);
   </script>
