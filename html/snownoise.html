@@ -12,16 +12,20 @@
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
   var h = canvas.height;
-  ctx.fillStyle = "#eee";
+  
   function render() {
+    ctx.beginPath();
+    ctx.fillStyle = "#eee";
     ctx.fillRect(0, 0, 640, 480);
     
     for(var i=0;i<10000;i++){
       var x = Math.floor(Math.random() * 650) - 10;
       var y = Math.floor(Math.random() * 481) - 1;
-      //ctx.beginPath();
-      ctx.strokeRect(x, y, 10, 1);
+      ctx.beginPath();
+      ctx.fillStyle = "#000";
+      ctx.fillRect(x, y, 10, 1);
     }
+    ctx.beginPath();
     ctx.fillStyle = "blue";
     ctx.font = "30px 'Arial'";
     ctx.fillText("テキスト", 50, 50);
