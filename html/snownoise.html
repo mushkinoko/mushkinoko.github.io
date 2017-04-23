@@ -13,6 +13,7 @@
   var w = canvas.width;
   var h = canvas.height;
   ctx.fillStyle = "#eee";
+  ctx.font = "30px 'Arial'";
   function render() {
     ctx.fillRect(0, 0, 640, 480);
     for(var i=0;i<10000;i++){
@@ -21,8 +22,7 @@
       ctx.beginPath();
       ctx.strokeRect(x, y, 10, 1);
     }
-    ctx.font = "30px";
-    ctx.strokeText("テキスト", 50, 50);
+    ctx.fillText("テキスト", 50, 50);
   }
   setInterval(render, 80);
   </script>
