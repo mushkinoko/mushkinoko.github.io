@@ -12,7 +12,6 @@
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
   var h = canvas.height;
-  
   function render() {
     ctx.beginPath();
     ctx.fillStyle = "#eee";
@@ -25,8 +24,9 @@
       ctx.strokeRect(x, y, 10, 1);
     }
     ctx.beginPath();
-    ctx.fillStyle = "blue";
-    ctx.font = "100px 'sans-serif'";
+    ctx.fillStyle = "#eee";
+    ctx.font = "bold 100px 'sans-serif'";
+    ctx.textAlign = "center";
     ctx.fillText("テキスト", 320, 240);
   }
   setInterval(render, 80);
