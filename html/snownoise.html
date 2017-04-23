@@ -3,11 +3,10 @@
   <title>砂嵐</title>
   <style>
   @font-face {
-    font-family: 'pixelmplus12bold';
-    src: url('pixelmplus12-bold.woff2') format('woff2'),
-      url('pixelmplus12-bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'ipam';
+    src: url('ipam.woff2') format('woff2'),
+      url('ipam.woff') format('woff'),
+      url('ipam.ttf') format('truetype');
   }
   </style>
 <body>
@@ -37,12 +36,12 @@
     }
     ctx.beginPath();
     ctx.fillStyle = '#eee';
-    ctx.font = '80px ""';
+    ctx.font = '80px "ipam"';
     ctx.textAlign = 'center';
     ctx.fillText('大会まであと', 320, 200);
     ctx.beginPath();
     ctx.fillStyle = '#eee';
-    ctx.font = '120px ""';
+    ctx.font = '120px "ipam"';
     ctx.textAlign = 'center';
     ctx.fillText(countdown + '秒', 320, 320);
   }
