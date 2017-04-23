@@ -2,7 +2,9 @@
   <meta charset="utf-8">
   <title>砂嵐</title>
 <body>
-  <canvas id="canvas" width="640" height="480" style="-webkit-filter:blur(2px);filter:blur(2px);border-radius:320px 320px 320px 320px / 30px 30px 30px 30px"></canvas>
+  <div style="border-radius:320px 320px 320px 320px / 30px 30px 30px 30px">
+    <canvas id="canvas" width="640" height="480" style="-webkit-filter:blur(2px);filter:blur(2px)"></canvas>
+  </div>
   <script>
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
