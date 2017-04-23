@@ -39,17 +39,17 @@
     ctx.font = 'bold 80px "ipam"';
     ctx.textAlign = 'center';
     ctx.fillText('大会まであと', 320, 200);
+    ctx.beginPath();
+    ctx.fillStyle = '#eee';
+    ctx.font = 'bold 100px "ipam"';
+    ctx.textAlign = 'center';
     if(countdown > 0) {
-      ctx.beginPath();
-      ctx.fillStyle = '#eee';
-      ctx.font = 'bold 100px "ipam"';
-      ctx.textAlign = 'center';
-      ctx.fillText(countdown + '秒', 320, 320);
+      if(countdown % 1 == 0) {
+        ctx.fillText(countdown + '.0秒', 320, 320);
+      } else {
+        ctx.fillText(countdown + '秒', 320, 320);
+      }
     } else {
-      ctx.beginPath();
-      ctx.fillStyle = '#eee';
-      ctx.font = 'bold 100px "ipam"';
-      ctx.textAlign = 'center';
       ctx.fillText('0秒', 320, 320);
     }
   }
