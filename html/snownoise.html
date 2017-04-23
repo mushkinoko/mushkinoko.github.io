@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <title>砂嵐</title>
 <body>
-  <div style="width:640px;height:480px;background-color:#333;border-color:#888 #aaa;border-style:solid;border-width:10px 20px">
+  <div style="width:644px;height:484px;background-color:#333;border-color:#888 #aaa;border-style:solid;border-width:10px 20px">
     <canvas id="canvas" width="640" height="480" style="-webkit-filter:blur(2px);filter:blur(2px);border-radius:10px"></canvas>
   </div>
   <script>
@@ -10,8 +10,9 @@
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
   var h = canvas.height;
+  ctx.fillStyle = "rgb(216,216,194)";
   function render() {
-    ctx.clearRect(0, 0, 640, 480);
+    ctx.fillRect(0, 0, 640, 480);
     for(var i=0;i<10000;i++){
       var x = Math.floor(Math.random() * 650) - 10;
       var y = Math.floor(Math.random() * 481) - 1;
