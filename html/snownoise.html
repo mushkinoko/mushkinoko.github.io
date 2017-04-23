@@ -1,6 +1,13 @@
 <html>
   <meta charset="utf-8">
   <title>砂嵐</title>
+  <style>
+  @font-face {
+    font-family: 'pixelmplus12bold';
+    src: url('pixelmplus12-bold.woff2') format('woff2'),
+      url('pixelmplus12-bold.woff') format('woff');
+  }
+  </style>
 <body>
   <div style="width:728px;height:528px;background-color:#999;padding:40px 40px 160px;border-radius:8px">
     <div style="width:648px;height:488px;background-color:#111;border-color:#888 #aaa;border-style:solid;border-width:20px 40px">
@@ -8,7 +15,7 @@
     </div>
   </div>
   <script>
-  var ttime = new Date("2017/04/29 07:30");
+  var ttime = new Date('2017/04/29 07:30');
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var w = canvas.width;
@@ -17,25 +24,25 @@
     var ctime = new Date();
     var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) / 360000) / 10;
     ctx.beginPath();
-    ctx.fillStyle = "#eee";
+    ctx.fillStyle = '#eee';
     ctx.fillRect(0, 0, 640, 480);
     for(var i=0;i<10000;i++){
       var x = Math.floor(Math.random() * 650) - 10;
       var y = Math.floor(Math.random() * 481) - 1;
       ctx.beginPath();
-      ctx.strokeStyle = "#000";
+      ctx.strokeStyle = '#000';
       ctx.strokeRect(x, y, 10, 1);
     }
     ctx.beginPath();
-    ctx.fillStyle = "#eee";
-    ctx.font = "bold 80px 'sans-serif'";
-    ctx.textAlign = "center";
-    ctx.fillText("大会まであと", 320, 200);
+    ctx.fillStyle = '#eee';
+    ctx.font = '80px "pixelmplus12bold"';
+    ctx.textAlign = 'center';
+    ctx.fillText('大会まであと', 320, 200);
     ctx.beginPath();
-    ctx.fillStyle = "#eee";
-    ctx.font = "bold 120px 'sans-serif'";
-    ctx.textAlign = "center";
-    ctx.fillText(countdown + "時間", 320, 320);
+    ctx.fillStyle = '#eee';
+    ctx.font = '80px "pixelmplus12bold"';
+    ctx.textAlign = 'center';
+    ctx.fillText(countdown + '時間', 320, 320);
   }
   setInterval(render, 80);
   </script>
