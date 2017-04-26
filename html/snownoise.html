@@ -17,10 +17,10 @@
   }
   </style>
 </head>
-<body style="padding:10px">
-  <div style="width:184px;height:134px;background-color:#999;padding:10px 10px 40px;border-radius:4px">
-    <div style="width:164px;height:124px;background-color:#111;border-color:#888 #aaa;border-style:solid;border-width:5px 10px">
-      <canvas id="canvas" width="160" height="120" style="padding:2px;border-radius:10px"></canvas>
+<body style="padding:20px">
+  <div style="width:728px;height:528px;background-color:#999;padding:40px 40px 160px;border-radius:8px">
+    <div style="width:648px;height:488px;background-color:#111;border-color:#888 #aaa;border-style:solid;border-width:20px 40px">
+      <canvas id="canvas" width="640" height="480" style="-webkit-filter:blur(2px);filter:blur(2px);padding:4px;border-radius:20px"></canvas>
     </div>
   </div>
   <script>
@@ -33,31 +33,31 @@
     var countdown = Math.ceil((ttime.getTime() - ctime.getTime()) /　100) / 10;
     ctx.beginPath();
     ctx.fillStyle = '#eee';
-    ctx.fillRect(0, 0, 320, 240);
-    for(var i=0;i<6000;i++){
-      var x = Math.floor(Math.random() * 325) - 5;
-      var y = Math.floor(Math.random() * 241) - 1;
+    ctx.fillRect(0, 0, 640, 480);
+    for(var i=0;i<10000;i++){
+      var x = Math.floor(Math.random() * 650) - 10;
+      var y = Math.floor(Math.random() * 481) - 1;
       ctx.beginPath();
       ctx.strokeStyle = '#000';
-      ctx.strokeRect(x, y, 5, 1);
+      ctx.strokeRect(x, y, 10, 1);
     }
     ctx.beginPath();
     ctx.fillStyle = '#eee';
-    ctx.font = 'bold 40px "ipam"';
+    ctx.font = 'bold 80px "ipam"';
     ctx.textAlign = 'center';
-    ctx.fillText('大会まであと', 160, 100);
+    ctx.fillText('大会まであと', 320, 200);
     ctx.beginPath();
     ctx.fillStyle = '#eee';
-    ctx.font = 'bold 50px "ipam"';
+    ctx.font = 'bold 100px "ipam"';
     ctx.textAlign = 'center';
     if(countdown > 0) {
       if(countdown % 1 == 0) {
-        ctx.fillText(countdown + '.0秒', 160, 160);
+        ctx.fillText(countdown + '.0秒', 320, 320);
       } else {
-        ctx.fillText(countdown + '秒', 160, 160);
+        ctx.fillText(countdown + '秒', 320, 320);
       }
     } else {
-      ctx.fillText('0秒', 160, 160);
+      ctx.fillText('0秒', 320, 320);
     }
   }
   setInterval(render, 125);
