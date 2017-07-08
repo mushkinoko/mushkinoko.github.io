@@ -7,6 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>お昼ごはん</title>
 <link rel="stylesheet" href="framework7.ios.min.css">
+<link rel="stylesheet" href="framework7.ios.colors.min.css">
 <style type="text/css">
   #total{
     font-size: 2rem;
@@ -21,13 +22,13 @@
       <div class="navbar-inner">
         <div class="left"> </div>
         <div class="center sliding">お昼ごはん</div>
-        <div class="right"> </div>
+        <div class="right"><a href="#" id="reset" class="link">リセット</a></div>
       </div>
     </div>
     <div class="pages navbar-through">
       <div data-page="home" class="page">
         <div class="page-content">
-          <div class="list-block">
+          <div id="ohirugohan" class="list-block">
             <ul>
               <li>
                 <a href="#" class="item-link smart-select">
@@ -93,6 +94,7 @@
 <script type="text/javascript" src="framework7.min.js"></script>
 <script type="text/javascript">
   var myApp = new Framework7({
+    modalTitle: 'お昼ごはん',
     animateNavBackIcon: true,
     smartSelectBackText: '戻る',
     swipeBackPage: false
@@ -101,20 +103,34 @@
   var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true,
   });
-  var total, shushoku, shusai, fukusai;
-  $$(document).on('click', 'a.back', function(e) { 
+  var total, ohirugohan;
+  $$(document).on('click', 'a.back', function() { 
     total = 0;
-    shushoku = $$('[name=shushoku] option:checked').val().split('-');
-    total+=parseInt(shushoku[1]);
-    $$('[name=shusai] option:checked').each(function() {
-      shusai = $$(this).val().split('-');
-      total+=parseInt(shusai[1]);
-    });
-    $$('[name=fukusai] option:checked').each(function() {
-      fukusai = $$(this).val().split('-');
-      total+=parseInt(fukusai[1]);
+    $$('#ohirugohan option:checked').each(function() {
+      ohirugohan = $$(this).val().split('-');
+      total+=parseInt(ohirugohan[1]);
     });
     $$('#total').text('合計: ' + total + '円');
+  });
+  $$('#reset').on('click', function() {
+    var buttons = [
+      {
+        text: 'リセットしますか？',
+        label: true
+      },
+      {
+        text: 'はい',
+        color: 'red',
+        bold: true,
+        onClick: function() {
+          location.reload(true);
+        }
+      },
+      {
+        text: 'いいえ'
+      }
+    ];
+    myApp.actions(buttons);
   });
 </script>
 </body>
