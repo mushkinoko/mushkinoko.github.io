@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>お昼ごはん</title>
+<link rel="stylesheet" href="framework7.ios.min.css">
+<style type="text/css">
+  #total{
+    font-size: 2rem;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+<div class="views">
+  <div class="view view-main">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"> </div>
+        <div class="center sliding">お昼ごはん</div>
+        <div class="right"> </div>
+      </div>
+    </div>
+    <div class="pages navbar-through">
+      <div data-page="home" class="page">
+        <div class="page-content">
+          <div class="list-block">
+            <ul>
+              <li>
+                <a href="#" class="item-link smart-select">
+                  <select name="shushoku">
+                    <option value="gohan-200" selected>ご飯</option>
+                    <option value="pan-200">パン</option>
+                    <option value="pasuta-500">パスタ</option>
+                    <option value="ramen-500">ラーメン</option>
+                  </select>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">主食</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              
+              <li>
+                <a href="#" class="item-link smart-select">
+                  <select name="shusai" multiple>
+                    <option value="yakizakana-400">焼き魚</option>
+                    <option value="hanbagu-400">ハンバーグ</option>
+                    <option value="ssashimi-400">刺身</option>
+                    <option value="suteki-500">ステーキ</option>
+                    <option value="yasaiitame-300">肉野菜炒め</option>
+                    <option value="karaage-300">唐揚げ</option>
+                    <option value="siromizakananohurai-300">白身魚のフライ</option>
+                  </select>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">主菜</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              
+              <li>
+                <a href="#" class="item-link smart-select">
+                  <select name="fukusai" multiple>
+                    <option value="sarada-150">サラダ</option>
+                    <option value="tsukemono-100">漬物</option>
+                    <option value="hijikini-150">ひじき煮</option>
+                    <option value="nibitashi-100">煮浸し</option>
+                    <option value="shiraae-150">白和え</option>
+                    <option value="potetosarada-150">ポテトサラダ</option>
+                  </select>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">副菜</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div class="content-block"><p id="total"></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="framework7.min.js"></script>
+<script type="text/javascript">
+  var myApp = new Framework7({
+    animateNavBackIcon:true,
+    smartSelectBackText: '戻る'
+  }); 
+  var $$ = Dom7;
+  var mainView = myApp.addView('.view-main', {
+    dynamicNavbar: true,
+  });
+  var total, shushoku, shusai, fukusai;
+  $$(document).on('click', 'a.back', function(e) { 
+    total = 0;
+    shushoku = $$('[name=shushoku] option:checked').val().split('-');
+    total+=parseInt(shushoku[1]);
+    $$('[name=shusai] option:checked').each(function() {
+      shusai = $$(this).val().split('-');
+      total+=parseInt(shusai[1]);
+    });
+    $$('[name=fukusai] option:checked').each(function() {
+      fukusai = $$(this).val().split('-');
+      total+=parseInt(fukusai[1]);
+    });
+    $$('#total').text('合計: ' + total + '円');
+  });
+</script>
+</body>
+</html>
