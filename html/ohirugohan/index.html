@@ -19,73 +19,91 @@
 <div class="views">
   <div class="view view-main">
     <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left"> </div>
+      <div class="navbar-inner" data-page="index">
         <div class="center sliding">お昼ごはん</div>
-        <div class="right"><a href="#" id="reset" class="link">リセット</a></div>
+        <div class="right sliding"><a href="#" id="reset" class="link">リセット</a></div>
+      </div>
+      <div class="navbar-inner cached" data-page="shushoku">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">主食</div>
+      </div>
+      <div class="navbar-inner cached" data-page="shusai">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">主菜</div>
+      </div>
+      <div class="navbar-inner cached" data-page="fukusai">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">副菜</div>
       </div>
     </div>
+
     <div class="pages navbar-through">
-      <div data-page="home" class="page">
+      <div class="page" data-page="index">
         <div class="page-content">
-          <div id="ohirugohan" class="list-block">
-            <ul>
-              <li>
-                <a href="#" class="item-link smart-select">
-                  <select name="shushoku">
-                    <option value="none-0" selected>未選択</option>
-                    <option value="gohan-200">ご飯</option>
-                    <option value="pan-200">パン</option>
-                    <option value="pasuta-500">パスタ</option>
-                    <option value="ramen-500">ラーメン</option>
-                  </select>
-                  <div class="item-content">
-                    <div class="item-inner">
-                      <div class="item-title">主食</div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              
-              <li>
-                <a href="#" class="item-link smart-select">
-                  <select name="shusai" multiple>
-                    <option value="yakizakana-400">焼き魚</option>
-                    <option value="hanbagu-400">ハンバーグ</option>
-                    <option value="ssashimi-400">刺身</option>
-                    <option value="suteki-500">ステーキ</option>
-                    <option value="yasaiitame-300">肉野菜炒め</option>
-                    <option value="karaage-300">唐揚げ</option>
-                    <option value="siromizakananohurai-300">白身魚のフライ</option>
-                  </select>
-                  <div class="item-content">
-                    <div class="item-inner">
-                      <div class="item-title">主菜</div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              
-              <li>
-                <a href="#" class="item-link smart-select">
-                  <select name="fukusai" multiple>
-                    <option value="sarada-150">サラダ</option>
-                    <option value="tsukemono-100">漬物</option>
-                    <option value="hijikini-150">ひじき煮</option>
-                    <option value="nibitashi-100">煮浸し</option>
-                    <option value="shiraae-150">白和え</option>
-                    <option value="potetosarada-150">ポテトサラダ</option>
-                  </select>
-                  <div class="item-content">
-                    <div class="item-inner">
-                      <div class="item-title">副菜</div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-            <div class="content-block"><p id="total">合計: 0円</p></div>
-          </div>
+          <div class="list-block"><ul>
+            <li><a href="#shushoku" class="item-link"><div class="item-content"><div class="item-inner"> 
+              <div class="item-title">主食</div>
+            </div></div></a></li>
+            <li><a href="#shusai" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">主菜</div>
+            </div></div></a></li>
+            <li><a href="#fukusai" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">副菜</div>
+            </div></div></a></li>
+          </ul></div>
+          <div class="content-block"><p id="total">合計: 0円</p></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="shushoku">
+        <div class="page-content">
+          <div class="content-block-title">主食</div>
+          <div class="list-block"><ul>
+            <li><label class="label-radio item-content">
+              <input type="radio" name="shushoku" value="gohan-200">
+              <div class="item-inner"><div class="item-title">ご飯</div></div>
+            </label></li>
+            <li><label class="label-radio item-content">
+              <input type="radio" name="shushoku" value="pan-300">
+              <div class="item-inner"><div class="item-title">パン</div></div>
+            </label></li>
+          </ul></div> 
+        </div>
+      </div>
+
+      <div class="page cached" data-page="shusai">
+        <div class="page-content">
+          <div class="content-block-title">主菜</div>
+          <div class="list-block"><ul>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="shusai" value="yakizakana-400">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner"><div class="item-title">焼き魚</div></div>
+            </label></li>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="shusai" value="hanbagu-500">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner"><div class="item-title">ハンバーグ</div></div>
+            </label></li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="fukusai">
+        <div class="page-content">
+          <div class="content-block-title">副菜</div>
+          <div class="list-block"><ul>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="fukusai" value="sarada-150">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner"><div class="item-title">サラダ</div></div>
+            </label></li>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="fukusai" value="tsukemono-100">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner"><div class="item-title">漬け物</div></div>
+            </label></li>
+          </ul></div>
         </div>
       </div>
     </div>
@@ -96,17 +114,17 @@
   var myApp = new Framework7({
     modalTitle: 'お昼ごはん',
     animateNavBackIcon: true,
-    smartSelectBackText: '戻る',
     swipeBackPage: false
   }); 
   var $$ = Dom7;
   var mainView = myApp.addView('.view-main', {
-    dynamicNavbar: true,
+    domCache: true,
+    dynamicNavbar: true
   });
   var total, ohirugohan;
-  $$(document).on('click', 'a.back', function() { 
+  $$(document).on('click', '.back', function() { 
     total = 0;
-    $$('#ohirugohan option:checked').each(function() {
+    $$('input:checked').each(function() {
       ohirugohan = $$(this).val().split('-');
       total+=parseInt(ohirugohan[1]);
     });
@@ -123,7 +141,9 @@
         color: 'red',
         bold: true,
         onClick: function() {
-          location.reload(true);
+          $$('input:checked').prop('checked', false);
+          $$('#total').text('合計: 0円');
+          myApp.alert('リセットしました。');
         }
       },
       {
