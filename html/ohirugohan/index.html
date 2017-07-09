@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="framework7.ios.min.css">
 <link rel="stylesheet" href="framework7.ios.colors.min.css">
 <style type="text/css">
-  #total{
+  .total{
     font-size: 2rem;
     text-align: right;
   }
@@ -21,7 +21,7 @@
     <div class="navbar">
       <div class="navbar-inner" data-page="index">
         <div class="center sliding">お昼ごはん</div>
-        <div class="right sliding"><a href="#" id="reset" class="link">リセット</a></div>
+        <div class="right sliding"><a href="#" class="link reset">リセット</a></div>
       </div>
       <div class="navbar-inner cached" data-page="shushoku">
         <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
@@ -51,7 +51,7 @@
               <div class="item-title">副菜</div>
             </div></div></a></li>
           </ul></div>
-          <div class="content-block"><p id="total">合計: 0円</p></div>
+          <div class="content-block"><p class="total">合計: 0円</p></div>
         </div>
       </div>
 
@@ -128,9 +128,9 @@
       ohirugohan = $$(this).val().split('-');
       total+=parseInt(ohirugohan[1]);
     });
-    $$('#total').text('合計: ' + total + '円');
+    $$('.total').text('合計: ' + total + '円');
   });
-  $$('#reset').on('click', function() {
+  $$('.reset').on('click', function() {
     var buttons = [
       {
         text: 'リセットしますか？',
@@ -142,7 +142,7 @@
         bold: true,
         onClick: function() {
           $$('input:checked').prop('checked', false);
-          $$('#total').text('合計: 0円');
+          $$('.total').text('合計: 0円');
           myApp.alert('リセットしました。');
         }
       },
