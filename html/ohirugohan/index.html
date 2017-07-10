@@ -159,7 +159,12 @@
   });
 
   $$('.changebtn').on('click', function() {
-    $$('.change').text('お釣り: ' + parseInt($$('.changeinput').val() - total) + '円');
+    if($$('.changeinput').val().match(/^([1-9]\d*|0)$/) && $$('.changeinput').val() >= total) {
+      $$('.change').text('お釣り: ' + parseInt($$('.changeinput').val() - total) + '円');
+    } else {
+      $$('.change').text('');
+      myApp.alert('合計金額以上の整数を入力してください。');
+    }
   });
 
   $$('.reset').on('click', function() {
