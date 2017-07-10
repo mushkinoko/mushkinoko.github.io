@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="framework7.ios.min.css">
 <link rel="stylesheet" href="framework7.ios.colors.min.css">
 <style type="text/css">
-  .total{
+  .total, .change{
     font-size: 2rem;
     text-align: right;
   }
@@ -35,6 +35,10 @@
         <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
         <div class="center sliding">副菜</div>
       </div>
+      <div class="navbar-inner cached" data-page="shiharai">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">支払い</div>
+      </div>
     </div>
 
     <div class="pages navbar-through">
@@ -52,13 +56,18 @@
             </div></div></a></li>
           </ul></div>
           <div class="content-block"><p class="total">合計: 0円</p></div>
+          <div class="list-block"><ul>
+            <li><a href="#shiharai" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">支払い</div>
+            </div></div></a></li>
+          </ul></div>
         </div>
       </div>
 
       <div class="page cached" data-page="shushoku">
         <div class="page-content">
           <div class="content-block-title">主食</div>
-          <div class="list-block"><ul>
+          <div class="list-block ohirugohan"><ul>
             <li><label class="label-radio item-content">
               <input type="radio" name="shushoku" value="gohan-200">
               <div class="item-inner"><div class="item-title">ご飯</div></div>
@@ -74,7 +83,7 @@
       <div class="page cached" data-page="shusai">
         <div class="page-content">
           <div class="content-block-title">主菜</div>
-          <div class="list-block"><ul>
+          <div class="list-block ohirugohan"><ul>
             <li><label class="label-checkbox item-content">
               <input type="checkbox" name="shusai" value="yakizakana-400">
               <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
@@ -92,7 +101,7 @@
       <div class="page cached" data-page="fukusai">
         <div class="page-content">
           <div class="content-block-title">副菜</div>
-          <div class="list-block"><ul>
+          <div class="list-block ohirugohan"><ul>
             <li><label class="label-checkbox item-content">
               <input type="checkbox" name="fukusai" value="sarada-150">
               <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
@@ -104,6 +113,22 @@
               <div class="item-inner"><div class="item-title">漬け物</div></div>
             </label></li>
           </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="shiharai">
+        <div class="page-content">
+          <div class="content-block-title">支払い</div>
+          <div class="list-block"><ul>
+            <li><div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">お預り</div>
+                <div class="item-input"><input type="number" name="changeinput" class="changeinput"></div>
+              </div>
+            </div></li>
+            <li><a href="#" class="item-link list-button changebtn">お釣りを表示</a></li>
+          </ul></div>
+          <div class="content-block"><p class="change"></p></div>
         </div>
       </div>
     </div>
@@ -121,15 +146,22 @@
     domCache: true,
     dynamicNavbar: true
   });
-  var total, ohirugohan;
+
+  var total = 0, ohirugohan;
   $$(document).on('click', '.back', function() { 
     total = 0;
-    $$('input:checked').each(function() {
+    $$('.ohirugohan input:checked').each(function() {
       ohirugohan = $$(this).val().split('-');
       total+=parseInt(ohirugohan[1]);
     });
     $$('.total').text('合計: ' + total + '円');
+    $$('.change').text('');
   });
+
+  $$('.changebtn').on('click', function() {
+    $$('.change').text('お釣り: ' + parseInt($$('.changeinput').val() - total) + '円');
+  });
+
   $$('.reset').on('click', function() {
     var buttons = [
       {
@@ -141,7 +173,7 @@
         color: 'red',
         bold: true,
         onClick: function() {
-          $$('input:checked').prop('checked', false);
+          $$('.ohirugohan input:checked').prop('checked', false);
           $$('.total').text('合計: 0円');
           myApp.alert('リセットしました。');
         }
