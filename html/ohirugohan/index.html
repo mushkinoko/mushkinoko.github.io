@@ -156,6 +156,7 @@
     });
     $$('.total').text('合計: ' + total + '円');
     $$('.change').text('');
+    $$('.changeinput').val('');
   });
 
   $$('.changebtn').on('click', function() {
@@ -179,7 +180,6 @@
         bold: true,
         onClick: function() {
           $$('.ohirugohan input:checked').prop('checked', false);
-          $$('.changeinput').val('');
           $$('.total').text('合計: 0円');
           myApp.alert('リセットしました。');
         }
