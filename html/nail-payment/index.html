@@ -88,7 +88,7 @@
       <div class="page cached" data-page="pagea">
         <div class="page-content">
           <div class="content-block-title">ジェル</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="list-block nail-payment"><ul>
             <li><label class="label-checkbox item-content">
               <input type="checkbox" name="a" value="a0-1500">
               <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
@@ -120,7 +120,7 @@
       <div class="page cached" data-page="pageb">
         <div class="page-content">
           <div class="content-block-title">ケア</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="list-block nail-payment"><ul>
 
           </ul></div>
         </div>
@@ -129,7 +129,7 @@
       <div class="page cached" data-page="pagec">
         <div class="page-content">
           <div class="content-block-title">フット</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="list-block nail-payment"><ul>
 
           </ul></div>
         </div>
@@ -138,7 +138,7 @@
       <div class="page cached" data-page="paged">
         <div class="page-content">
           <div class="content-block-title">付替オフ</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="list-block nail-payment"><ul>
 
           </ul></div>
         </div>
@@ -146,8 +146,8 @@
 
       <div class="page cached" data-page="pagee">
         <div class="page-content">
-          <div class="content-block-title">お麩のみ</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="content-block-title">オフのみ</div>
+          <div class="list-block nail-payment"><ul>
 
           </ul></div>
         </div>
@@ -156,7 +156,7 @@
       <div class="page cached" data-page="pagef">
         <div class="page-content">
           <div class="content-block-title">その他</div>
-          <div class="list-block ohirugohan"><ul>
+          <div class="list-block nail-payment"><ul>
 
           </ul></div>
         </div>
@@ -195,12 +195,12 @@
     dynamicNavbar: true
   });
 
-  var total = 0, ohirugohan;
+  var total = 0, payment;
   $$(document).on('click', '.back', function() { 
     total = 0;
-    $$('.ohirugohan input:checked').each(function() {
-      ohirugohan = $$(this).val().split('-');
-      total+=parseInt(ohirugohan[1]);
+    $$('.nail-payment input:checked').each(function() {
+      payment = $$(this).val().split('-');
+      total+=parseInt(payment[1]);
     });
     $$('.total').text('合計: ' + total + '円');
     $$('.change').text('');
@@ -227,7 +227,7 @@
         color: 'red',
         bold: true,
         onClick: function() {
-          $$('.ohirugohan input:checked').prop('checked', false);
+          $$('.nail-payment input:checked').prop('checked', false);
           $$('.total').text('合計: 0円');
           myApp.alert('リセットしました。');
         }
