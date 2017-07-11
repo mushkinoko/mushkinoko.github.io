@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>会計</title>
+<link rel="stylesheet" href="framework7.ios.min.css">
+<link rel="stylesheet" href="framework7.ios.colors.min.css">
+<style type="text/css">
+  .total, .change{
+    font-size: 2rem;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+<div class="views">
+  <div class="view view-main">
+    <div class="navbar">
+      <div class="navbar-inner" data-page="index">
+        <div class="center sliding">会計</div>
+        <div class="right sliding"><a href="#" class="link reset">リセット</a></div>
+      </div>
+      <div class="navbar-inner cached" data-page="pagea">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">ジェル</div>
+      </div>
+      <div class="navbar-inner cached" data-page="pageb">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">ケア</div>
+      </div>
+      <div class="navbar-inner cached" data-page="pagec">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">フット</div>
+      </div>
+      <div class="navbar-inner cached" data-page="paged">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">付替オフ</div>
+      </div>
+      <div class="navbar-inner cached" data-page="pagee">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">オフのみ</div>
+      </div>
+      <div class="navbar-inner cached" data-page="pagef">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">その他</div>
+      </div>
+      <div class="navbar-inner cached" data-page="payment">
+        <div class="left sliding"><a href="#index" class="back link"><i class="icon icon-back"></i><span>戻る</span></a></div>
+        <div class="center sliding">支払い</div>
+      </div>
+    </div>
+
+    <div class="pages navbar-through">
+      <div class="page" data-page="index">
+        <div class="page-content">
+          <div class="list-block"><ul>
+            <li><a href="#pagea" class="item-link"><div class="item-content"><div class="item-inner"> 
+              <div class="item-title">ジェル</div>
+            </div></div></a></li>
+            <li><a href="#pageb" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">ケア</div>
+            </div></div></a></li>
+            <li><a href="#pagec" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">フット</div>
+            </div></div></a></li>
+            <li><a href="#paged" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">付替オフ</div>
+            </div></div></a></li>
+            <li><a href="#pagee" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">オフのみ</div>
+            </div></div></a></li>
+            <li><a href="#pagef" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">その他</div>
+            </div></div></a></li>
+          </ul></div>
+          <div class="content-block"><p class="total">合計: 0円</p></div>
+          <div class="list-block"><ul>
+            <li><a href="#payment" class="item-link"><div class="item-content"><div class="item-inner">
+              <div class="item-title">支払い</div>
+            </div></div></a></li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="pagea">
+        <div class="page-content">
+          <div class="content-block-title">ジェル</div>
+          <div class="list-block ohirugohan"><ul>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="a" value="a0-1500">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">クリア</div>
+                <div class="item-after">1500円</div>
+              </div>
+            </label></li>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="a" value="a1-2500">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">ラメグラデーション</div>
+                <div class="item-after">2500円</div>
+              </div>
+            </label></li>
+            <li><label class="label-checkbox item-content">
+              <input type="checkbox" name="a" value="a2-3500">
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">カラーグラデーション</div>
+                <div class="item-after">3500円</div>
+              </div>
+            </label></li>
+          </ul></div> 
+        </div>
+      </div>
+
+      <div class="page cached" data-page="pageb">
+        <div class="page-content">
+          <div class="content-block-title">ケア</div>
+          <div class="list-block ohirugohan"><ul>
+
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="pagec">
+        <div class="page-content">
+          <div class="content-block-title">フット</div>
+          <div class="list-block ohirugohan"><ul>
+
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="paged">
+        <div class="page-content">
+          <div class="content-block-title">付替オフ</div>
+          <div class="list-block ohirugohan"><ul>
+
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="pagee">
+        <div class="page-content">
+          <div class="content-block-title">お麩のみ</div>
+          <div class="list-block ohirugohan"><ul>
+
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="pagef">
+        <div class="page-content">
+          <div class="content-block-title">その他</div>
+          <div class="list-block ohirugohan"><ul>
+
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="page cached" data-page="payment">
+        <div class="page-content">
+          <div class="content-block-title">支払い</div>
+          <div class="list-block"><ul>
+            <li><div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">お預り</div>
+                <div class="item-input"><input type="number" name="changeinput" class="changeinput"></div>
+                <div class="item-after">円</div>
+              </div>
+            </div></li>
+            <li><a href="#" class="item-link list-button changebtn">お釣りを表示</a></li>
+          </ul></div>
+          <div class="content-block"><p class="total">合計: 0円</p></div>
+          <div class="content-block"><p class="change"></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="framework7.min.js"></script>
+<script type="text/javascript">
+  var myApp = new Framework7({
+    modalTitle: '会計',
+    animateNavBackIcon: true,
+    swipeBackPage: false
+  }); 
+  var $$ = Dom7;
+  var mainView = myApp.addView('.view-main', {
+    domCache: true,
+    dynamicNavbar: true
+  });
+
+  var total = 0, ohirugohan;
+  $$(document).on('click', '.back', function() { 
+    total = 0;
+    $$('.ohirugohan input:checked').each(function() {
+      ohirugohan = $$(this).val().split('-');
+      total+=parseInt(ohirugohan[1]);
+    });
+    $$('.total').text('合計: ' + total + '円');
+    $$('.change').text('');
+    $$('.changeinput').val('');
+  });
+
+  $$('.changebtn').on('click', function() {
+    if($$('.changeinput').val().match(/^([1-9]\d*|0)$/) && $$('.changeinput').val() >= total) {
+      $$('.change').text('お釣り: ' + parseInt($$('.changeinput').val() - total) + '円');
+    } else {
+      $$('.change').text('');
+      myApp.alert('合計金額以上の整数を入力してください。');
+    }
+  });
+
+  $$('.reset').on('click', function() {
+    var buttons = [
+      {
+        text: 'リセットしますか？',
+        label: true
+      },
+      {
+        text: 'はい',
+        color: 'red',
+        bold: true,
+        onClick: function() {
+          $$('.ohirugohan input:checked').prop('checked', false);
+          $$('.total').text('合計: 0円');
+          myApp.alert('リセットしました。');
+        }
+      },
+      {
+        text: 'いいえ'
+      }
+    ];
+    myApp.actions(buttons);
+  });
+</script>
+</body>
+</html>
