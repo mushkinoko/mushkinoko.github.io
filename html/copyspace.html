@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>空白文字</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>空白文字</h1>
+      <p id="copytext">&#x2060</p>
+      <button id="copybutton" class="btn btn-primary btn-block">コピー</button>
+    </div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('copybutton').addEventListener('click', function() {
+        var range = document.createRange();
+        var copytext = document.getElementById('copytext');
+        range.selectNode(copytext);
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+      });
+    });
+  </script>
+</html>
