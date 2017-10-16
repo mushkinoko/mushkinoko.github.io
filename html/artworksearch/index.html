@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アルバムアートワーク取得</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>アルバムアートワーク取得</h1>
+      <p>iTunesから画像を拾ってくるよ。</p>
+      <form id="searchform" onsubmit="return false">
+        <div class="input-group">
+          <input type="text" id="keyword" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+            <button id="search" class="btn btn-primary" type="submit">検索</button>
+          </span>
+        </div>
+      </form>
+      <div id="loading"></div>
+      <div id="artworks"></div>
+    </div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("#search").click(function(){
+        search($("#keyword").val());
+      });
+    });
+    function search(keyword) {
+      $("#artworks").empty();
+      $("#loading").text("読み込み中...");
+      $.ajax({
+        dataType: "jsonp",
+        data: {
+          "term": keyword,
+          "country":"jp",
+          "entity":"album",
+          "limit":"40"
+        },
+        url: "//itunes.apple.com/search",
+        success: function (data) {
+          $("#loading").text("");	
+          $.each(data.results, function(i, item){
+            var artworkUrl100 = item.artworkUrl100;
+            var artworkUrl600 = artworkUrl100.replace("100x100","600x600");
+            $("<a/>")
+              .attr("href", artworkUrl600)
+              .append("<img src='" + item.artworkUrl60 + "' width='80px' style='margin:5px;border-radius:5px;'/>")
+              .appendTo("#artworks");
+          });
+        }
+      });
+    }
+  </script>
+</html>
