@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ピタゴラス数</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>ピタゴラス数</h1>
+      <div class="form-group">
+        <label>組数</label>
+        <input type="text" id="num" class="form-control">
+      </div>
+      <button id="startbtn" class="btn btn-primary btn-block">実行</button>
+      <div id="result" class="well" style="margin-top:20px"></div>
+    </div>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+$('#startbtn').click(function () {
+  var result=$('#result');
+  result.empty();
+  var num=$('#num').val();
+  var a=new Array(num);
+  var b=new Array(num);
+  var c=new Array(num);
+  var count=0;var atmp;var btmp;var ctmp;
+  for(var i=0;i<num;i++){
+    for(var j=1;j<i+2;j++){
+      if(count<num){
+        var flag=0;
+        a[count]=(i+2)*(i+2)+j*j;
+        var x=2*(i+2)*j;
+        var y=(i+2)*(i+2)-j*j;
+        if(x>y){
+          b[count]=x;
+          c[count]=y;
+        }else{
+          b[count]=y;
+          c[count]=x;
+        }
+        for(var k=0;k<count;k++){
+          for(var l=0;l<a[count]/a[k]+1;l++){
+            if(a[count]==a[k]*l&&b[count]==b[k]*l&&c[count]==c[k]*l)
+              flag=1;
+          }
+        }
+        if(flag==0)count++;
+      }
+    }
+  }
+  for(var i=0;i<num;i++){
+    for(var j=i+1;j<num;j++){
+      if(a[i]>a[j]){
+        atmp=a[i];
+        a[i]=a[j];
+        a[j]=atmp;
+        btmp=b[i];
+        b[i]=b[j];
+        b[j]=btmp;
+        ctmp=c[i];
+        c[i]=c[j];
+        c[j]=ctmp;
+      }
+    }
+  }
+  for(var i=0;i<num;i++){
+    for(var j=i+1;j<num;j++){
+      if(a[i]==a[j]&&b[i]>b[j]){
+        atmp=a[i];
+        a[i]=a[j];
+        a[j]=atmp;
+        btmp=b[i];
+        b[i]=b[j];
+        b[j]=btmp;
+        ctmp=c[i];
+        c[i]=c[j];
+        c[j]=ctmp;
+      }
+    }
+  }
+  for(var i=0;i<num;i++){
+    for(var j=i+1;j<num;j++){
+      if(a[i]==a[j]&&b[i]==b[j]&&c[i]>c[j]){
+        atmp=a[i];
+        a[i]=a[j];
+        a[j]=atmp;
+        btmp=b[i];
+        b[i]=b[j];
+        b[j]=btmp;
+        ctmp=c[i];
+        c[i]=c[j];
+        c[j]=ctmp;
+      }
+    }
+  }
+  for(var i=0;i<num;i++){
+    if(i<num-1)result.append('{'+a[i]+', '+b[i]+', '+c[i]+'}, ');
+    else result.append('{'+a[i]+', '+b[i]+', '+c[i]+'}');
+  }
+});
+  </script>
+</html>
+
+
+
+
+
+
+
