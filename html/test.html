@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.2.5/dist/ionicons.js"></script>
+  <style>
+.tabbar--material{
+box-shadow: 0 -4px 2px -2px rgba(0, 0, 0, .14), 0 -3px 5px -2px rgba(0, 0, 0, .12), 0 -5px 1px -4px rgba(0, 0, 0, .2);}
+.stars ion-icon{color:#FFC107;font-size:18px}
+  </style>
+</head>
+<body>
+
+
+<ons-page>
+  <ons-toolbar>
+    <div class="center">AppName</div>
+    <div class="right">
+      <ons-toolbar-button icon="ion-refresh"></ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <ons-tabbar swipeable position="bottom" style="">
+    <ons-tab page="home.html" label="Home" icon="ion-home" active>
+    </ons-tab>
+    <ons-tab page="map.html" label="Map" icon="ion-map">
+    </ons-tab>
+    <ons-tab page="more.html" label="More" icon="ion-more">
+    </ons-tab>
+  </ons-tabbar>
+</ons-page>
+
+<template id="home.html">
+  <ons-page id="home">
+
+<ons-pull-hook id="pull-hook">
+    Pull to refresh
+  </ons-pull-hook>
+
+<ons-list>
+<ons-list-item modifier="longdivider">
+  <div class="left">
+    <img class="list-item__thumbnail" src="https://tblg.k-img.com/restaurant/images/Rvw/24399/150x150_square_24399584.jpg">
+  </div>
+  <div class="center">
+    <span class="list-item__title">カネヒラ</span>
+    <span class="list-item__subtitle">コロッケ・フライ (600m)</span>
+    <span class="list-item__subtitle stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon><ion-icon name="star-outline"></ion-icon></span>
+  </div>
+  <div class="right"><ons-button modifier="outline" style="border: solid 1px;padding: 0 8px;">Map</ons-button></div>
+</ons-list-item>
+
+<ons-list-item modifier="longdivider">
+  <div class="left">
+    <img class="list-item__thumbnail" src="https://tblg.k-img.com/restaurant/images/Rvw/55578/150x150_square_55578554.jpg">
+  </div>
+  <div class="center">
+    <span class="list-item__title">杉田家</span>
+    <span class="list-item__subtitle">ラーメン (2km)</span>
+    <span class="list-item__subtitle stars"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon></span>
+  </div>
+  <div class="right"><ons-button modifier="outline" style="border: solid 1px;padding: 0 8px;">Map</ons-button></div>
+</ons-list-item>
+
+
+</ons-list>
+  </ons-page>
+</template>
+
+<template id="map.html">
+  <ons-page id="map">
+<div style="height: 100%;overflow-y: hidden;">
+    <iframe id="googlemap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.685581624987!2d139.61590131465263!3d35.3882534802636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018435d664217b9%3A0x50a70700f361edb7!2z5p2J55Sw5a62!5e0!3m2!1sja!2sjp!4v1532830738023" width="600" height="450" frameborder="0" style="border:0;width:100%;height:100%"></iframe>
+</div>
+  </ons-page>
+</template>
+
+<template id="more.html">
+  <ons-page id="more">
+    <ons-list>
+    <ons-list-item modifier="chevron" tappable>Settings</ons-list-item>
+    <ons-list-item tappable>About this app</ons-list-item>
+    </ons-list>
+  </ons-page>
+</template>
+
+<script>
+
+
+ons.ready(function() {
+
+document.addEventListener('prechange', function(event) {
+    if(event.tabItem.getAttribute('label') == 'Home') document.querySelector('ons-toolbar .center').innerHTML = 'AppName';
+    else document.querySelector('ons-toolbar .center').innerHTML = event.tabItem.getAttribute('label');
+});
+});
+</script>
+</body>
+</html>
