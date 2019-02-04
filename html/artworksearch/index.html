@@ -57,7 +57,7 @@
             artworkUrl600 = artworkUrl100.replace("100x100","600x600");
             $("<a/>")
               .attr("href", artworkUrl600)
-              .attr("onclick, "downloadImg();")
+              .attr("onclick, "downloadImg()")
               .append("<img src='" + item.artworkUrl60 + "' width='80px' style='margin:5px;border-radius:5px;'/>")
               .appendTo("#artworks");
           });
