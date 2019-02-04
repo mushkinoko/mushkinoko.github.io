@@ -32,6 +32,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../../bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript">
+    var artworkUrl600;
     $(function(){
       $("#search").click(function(){
         search($("#keyword").val());
@@ -53,15 +54,30 @@
           $("#loading").text("");	
           $.each(data.results, function(i, item){
             var artworkUrl100 = item.artworkUrl100;
-            var artworkUrl600 = artworkUrl100.replace("100x100","600x600");
+            artworkUrl600 = artworkUrl100.replace("100x100","600x600");
             $("<a/>")
               .attr("href", artworkUrl600)
-              .attr("download", "")
+              .attr("onclick, "downloadImg();")
               .append("<img src='" + item.artworkUrl60 + "' width='80px' style='margin:5px;border-radius:5px;'/>")
               .appendTo("#artworks");
           });
         }
       });
+    }
+    function downloadImg () {
+      var fileName = 'artwork.jpg';
+      var uri = artworkUrl600;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', uri);
+      xhr.responseType = 'blob';
+      xhr.onloadend = function () {
+        if (xhr.status !== 200) {
+          return false;
+        }
+      window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+      };
+      xhr.send();
     }
   </script>
 </html>
